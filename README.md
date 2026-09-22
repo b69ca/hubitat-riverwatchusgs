@@ -36,7 +36,7 @@ Find a gauge through [USGS Water Data for the Nation](https://waterdata.usgs.gov
 | Preference | Default | Purpose |
 | --- | --- | --- |
 | USGS station number | Required | An 8- to 15-digit monitoring-location number. A leading `USGS-` is accepted. |
-| Check interval | 60 minutes | 15, 30 or 60 minutes. Hourly is polite for the no-key service and suitable for many gauges. |
+| Check interval | 60 minutes | 30 or 60 minutes. Hourly is polite for the no-key service and suitable for many gauges. |
 | Stale after | 3 hours | Changes `riverState` to `stale` when the newest measurement is older. |
 | Watch/warning/critical stage | Empty | Optional local thresholds in the station's reported stage unit. |
 | Notify recovery | On | Emits button 1 when stage falls below the watch threshold. |

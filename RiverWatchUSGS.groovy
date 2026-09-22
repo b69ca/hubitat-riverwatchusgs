@@ -73,7 +73,7 @@ metadata {
       description: "Enter an 8- to 15-digit USGS monitoring-location number. Public gauge measurements are downloaded from api.waterdata.usgs.gov. No API key is required."
     input name: "siteNumber", type: "text", title: "USGS station number", required: true
     input name: "pollMinutes", type: "enum", title: "Automatic check interval", options: [
-      "15":"15 minutes", "30":"30 minutes", "60":"1 hour"], defaultValue: "60"
+      "30":"30 minutes", "60":"1 hour"], defaultValue: "60"
     input name: "staleMinutes", type: "enum", title: "Treat the gauge as stale after", options: [
       "60":"1 hour", "120":"2 hours", "180":"3 hours", "360":"6 hours", "720":"12 hours"], defaultValue: "180"
 
@@ -132,7 +132,7 @@ def initialize() {
 }
 
 def configureSchedule() {
-  int minutes = settingNumber("pollMinutes", 60d, 15d, 60d).intValue()
+  int minutes = settingNumber("pollMinutes", 60d, 30d, 60d).intValue()
   if (minutes == 60) runEvery1Hour("refresh")
   else schedule("0 */${minutes} * ? * *", "refresh")
 }
